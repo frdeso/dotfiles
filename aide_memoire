@@ -1,0 +1,8 @@
+[weechat]
+	ALT + # : Changer de tampon
+	CTRL + r : Rechercher une chaine dans le tampon courant
+	"/close" : Fermer un tampon
+	CTRL + x : Changer de serveur dans le tampon de serveur
+[Tmux]
+	tmux attach -t #id : Réattacher à une session
+[Screen]

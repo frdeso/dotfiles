@@ -1,0 +1,21 @@
+[user]
+	name = Francis Deslauriers
+	email = francis.deslauriers@mail.utoronto.ca
+[core]
+	editor = vim
+
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	ui = true
+[sendemail]
+	from = Francis Deslauriers <fdeslaur@gmail.com>
+	smtpserver = smtp.gmail.com
+	smtpuser = fdeslaur@gmail.com
+	smtpencryption = tls
+	chainreplyto = false
+	smtpserverport = 587
+
+[push]
+	default = simple

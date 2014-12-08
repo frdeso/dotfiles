@@ -1,0 +1,26 @@
+install:
+	cp bashrc ~/.bashrc
+	cp vimrc ~/.vimrc
+	mkdir -p ~/.i3
+	cp i3_config ~/.i3/config
+	cp i3status.conf ~/.i3status.conf
+	cp gitconfig ~/.gitconfig
+	install -m 750 wallpaper ~/.wallpaper
+	cp gtkrc-2.0 ~/.gtkrc-2.0
+	mkdir -p ~/.config/fish/functions
+	cp -r fish ~/.config/
+	cp config.fish ~/.config/fish/
+	cp -r fish_functions ~/.config/fish/functions/
+	cp -r irc.conf ~/.weechat/
+save:
+	cp ~/.bashrc bashrc
+	cp ~/.vimrc vimrc
+	cp ~/.i3/config i3_config
+	cp ~/.i3status.conf i3status.conf
+	cp ~/.gitconfig gitconfig
+	cp ~/.wallpaper wallpaper
+	cp ~/.gtkrc-2.0 gtkrc-2.0
+	cp /etc/X11/xorg.conf ./
+	cp -r ~/.config/fish/functions fish_functions
+	cp ~/.config/fish/config.fish config.fish
+	cp ~/.weechat/irc.conf irc.conf

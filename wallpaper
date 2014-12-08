@@ -1,0 +1,5 @@
+#!/bin/sh
+while true; do
+	ls  -d -1 ~/projets/wallpapers/* | sort -R | tail -1 | xargs feh --bg-scale 2>&1 > /tmp/feh.log
+	sleep 5m
+done
