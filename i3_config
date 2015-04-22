@@ -22,7 +22,11 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-#for_window [window_role="pop-up"] floating enable
+#browser popup
+for_window [window_role="pop-up"] floating enable
+#natilus file explorer should open floating
+for_window [class="Nautilus" instance="file_progress"] floating enable
+for_window [class="ck2" instance="ck2"] floating enable
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
@@ -213,5 +217,6 @@ bindsym XF86LaunchB exec pcmanfm
 
 #ss imgur
 bindsym $mod+c exec sleep 0.1 && bash ~/projets/ss/ss --imgur
+bindsym Print exec sleep 0.9 && scrot -t 20 
 
 

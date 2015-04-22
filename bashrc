@@ -203,30 +203,7 @@ On_IWhite='\e[0;107m'   # White
 Color_Off='\[\e[0m\]'         # Text Reset
 
 
-_PS1 ()
-{
-	local PRE= NAME="$1" LENGTH="$2";
-        [[ "$NAME" != "${NAME#$HOME/}" || -z "${NAME#$HOME}" ]] &&
-	PRE+='~' NAME="${NAME#$HOME}" LENGTH=$[LENGTH-1];
-	((${#NAME}>$LENGTH)) && NAME="/...${NAME:$[${#NAME}-LENGTH+4]}";
-	echo "$PRE$NAME"
-}
-#pwd='$(_PS1 "$PWD" 20)\ '
-
-
-session="$(screen -ls|grep "Detached" |awk '{print $1;}')"
-alias irc='screen -r $session'
-
-
 folderName=${PWD##*/}
 
 PS1="${debian_chroot:+($debian_chroot)}\[$IRed\]\u\[$BIYellow\]@\[$IGreen\]\h\:\[\033[01;34m\]\w\[\033[00m\]\$ "
 PS1="\n\`if [ \$? = 0 ]; then echo \[\e[33m\][^_^]\[\e[0m\]; else echo \[\e[31m\][O_O]\[\e[0m\]; fi\`$PS1"
-#PS1='$(_PS1 "$PWD" 20)\$ '
-if [ "\$(type -t __git_ps1)" ]; then
-	export GIT_PS1_SHOWDIRTYSTATE=true
-	export GIT_PS1_SHOWSTASHSTATE=true
-	export GIT_PS1_SHOWUNTRACKEDFILES=true
-	PS1="$PS1\$(__git_ps1 '$BYellow(git:%s)> $Color_Off')"
-fi
-cowsay -f $(ls /usr/share/cowsay/cows/ | shuf -n1) $(fortune)
