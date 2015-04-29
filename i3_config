@@ -195,7 +195,11 @@ exec --no-startup-id sh ~/.wallpaper &
 exec --no-startup-id /usr/bin/nm-applet &
 #start dropbox
 exec --no-startup-id /usr/bin/dropbox start &
+#set up screen saver/locker
+exec --no-startup-id xset dpms 420
+exec --no-startup-id xautolock -time 5 -locker slock -notify 30 -notifier "notify-send \"Vérouillage de l'écran dans 30 secondes!\""
 
+# set keyboard leds
 exec --no-startup-id /usr/local/bin/kbdlight set 100
 #bind sound keys
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 -- +3%
