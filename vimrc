@@ -1,7 +1,10 @@
 " Basics
 set mouse=a
-set clipboard=unnamed
+"set clipboard=unnamed
 set laststatus=2   " Always show the statusline
+
+" show filename, file type, position in file and time of day
+set statusline=%f%m%r%h%w\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
 set encoding=utf-8 " Necessary to show Unicode glyphs
 set noeb vb t_vb=  " Disable sound
 set nojoinspaces   " No double space when joining lines
@@ -44,69 +47,51 @@ set smartindent
 set autoindent
 set noet ci pi 
 set sts=0
-set sw=4
-set ts=4 " Tabs, shown as 4 spaces
+set sw=2
+set ts=2 " Tabs, shown as 4 spaces
 
 " Search
 set ignorecase
 set incsearch " Search as you type
 set gdefault  " Always use the g flag for search
 
+" replace stray character with a dot so it's easier to find.
+set listchars+=nbsp:.
+
 " Matching
 set matchpairs+=<:>
 
 " Mapping
-nmap <Space> :
-map - <Leader>
-map <C-7> :TComment
-nnoremap <Tab> %
-vnoremap <Tab> %
+"nmap <Space> :
+"map - <Leader>
+"map <C-7> :TComment
+"nnoremap <Tab> %
+"vnoremap <Tab> %
+
+"Set space as the leader
+let mapleader = "\<Space>"
+
+" Move between splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+nnoremap <Leader>j <C-W><C-J>
+nnoremap <Leader>k <C-W><C-K>
+nnoremap <Leader>l <C-W><C-L>
+nnoremap <Leader>h <C-W><C-H>
+
 
 " Changing the case
 nmap <Leader>u gUl
-nmap <leader>l gul
+nmap <Leader>i gul
 
 " Navigating in wrapped lines
 if !exists('vimpager')
 	nnoremap j gj
 	nnoremap k gk
 endif
-
-map <Down> gj
-map <Up> gk
-
-" tmux integration
-let g:tmux_is_last_pane = 0
-au WinEnter * let g:tmux_is_last_pane = 0
- 
-" Like `wincmd` but also change tmux panes instead of vim windows when needed.
-function TmuxWinCmd(direction)
-  let nr = winnr()
-  let tmux_last_pane = (a:direction == 'p' && g:tmux_is_last_pane)
-  if !tmux_last_pane
-    " try to switch windows within vim
-    exec 'wincmd ' . a:direction
-  endif
-  " Forward the switch panes command to tmux if:
-  " a) we're toggling between the last tmux pane;
-  " b) we tried switching windows in vim but it didn't have effect.
-  if tmux_last_pane || nr == winnr()
-    let cmd = 'tmux select-pane -' . tr(a:direction, 'phjkl', 'lLDUR')
-    exec 'silent !'.cmd
-    redraw! " because `exec` fucked up the screen. why is this needed?? arrghh
-    let g:tmux_is_last_pane = 1
-  else
-    let g:tmux_is_last_pane = 0
-  endif
-endfunction
- 
-" navigate between split windows/tmux panes
-nmap <c-j> :call TmuxWinCmd('j')<cr>
-nmap <c-k> :call TmuxWinCmd('k')<cr>
-nmap <c-h> :call TmuxWinCmd('h')<cr>
-nmap <c-l> :call TmuxWinCmd('l')<cr>
-nmap <c-\> :call TmuxWinCmd('p')<cr>
-
 
 " highlight the 80th character on a +80 characters long line
 highlight ColorColumn ctermbg=red
@@ -116,3 +101,18 @@ call matchadd('ColorColumn', '\%81v', 100)
 if has("autocmd")
 	  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'kien/ctrlp.vim'
+Plug 'bling/vim-airline', {'tag' : 'v0.7'}
+Plug 'xolox/vim-notes'
+Plug 'xolox/vim-misc'
+Plug 'mileszs/ack.vim'
+"Plug 'SirVer/ultisnips'
+"Plug 'luochen1990/indent-detector.vim'
+
+call plug#end()
+let g:airline_powerline_fonts = 1
+nnoremap <Leader>p :CtrlP<CR>
+nnoremap <Leader>t :NERDTreeToggle<CR>
