@@ -9,7 +9,7 @@ install:
 	cp gtkrc-2.0 ~/.gtkrc-2.0
 	mkdir -p ~/.config/fish/functions
 	cp config.fish ~/.config/fish/
-	cp -r fish_functions ~/.config/fish/functions/
+	cp -r fish_functions/* ~/.config/fish/functions/
 	mkdir -p ~/.weechat/
 	cp -r irc.conf ~/.weechat/
 save:
