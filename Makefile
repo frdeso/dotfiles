@@ -10,6 +10,7 @@ install:
 	mkdir -p ~/.config/fish/functions
 	cp config.fish ~/.config/fish/
 	cp -r fish_functions ~/.config/fish/functions/
+	mkdir -p ~/.weechat/
 	cp -r irc.conf ~/.weechat/
 save:
 	cp ~/.bashrc bashrc
