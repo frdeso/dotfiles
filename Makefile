@@ -8,7 +8,6 @@ install:
 	install -m 750 wallpaper ~/.wallpaper
 	cp gtkrc-2.0 ~/.gtkrc-2.0
 	mkdir -p ~/.config/fish/functions
-	cp -r fish ~/.config/
 	cp config.fish ~/.config/fish/
 	cp -r fish_functions ~/.config/fish/functions/
 	cp -r irc.conf ~/.weechat/
