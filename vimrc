@@ -31,13 +31,6 @@ au VimResized * :wincmd = " Resize split when the terminal is resized
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
-" File types
-filetype off
-filetype plugin indent on
-au BufRead,BufNewFile,BufWrite,BufEnter *.json setf javascript
-au BufRead,BufNewFile,BufWrite,BufEnter {Gemfile,Rakefile,Vagrantfile,Thorfile,Procfile,Capfile,Guardfile,config.ru,.caprc,.irbrc,*.rake} setf ruby
-au Filetype vim let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'", '`':'`'}
-
 " Backup
 set noswapfile
 set nobackup
@@ -61,22 +54,18 @@ set listchars+=nbsp:.
 " Matching
 set matchpairs+=<:>
 
-" Mapping
-"nmap <Space> :
-"map - <Leader>
-"map <C-7> :TComment
-"nnoremap <Tab> %
-"vnoremap <Tab> %
+" Auto add matching parenthesis and brackets
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+inoremap " ""<Esc>i
+inoremap ' ''<Esc>i
+inoremap < <><Esc>i
+inoremap { {}<Esc>i
 
 "Set space as the leader
 let mapleader = "\<Space>"
 
 " Move between splits
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
 nnoremap <Leader>j <C-W><C-J>
 nnoremap <Leader>k <C-W><C-K>
 nnoremap <Leader>l <C-W><C-L>
@@ -115,4 +104,23 @@ Plug 'mileszs/ack.vim'
 call plug#end()
 let g:airline_powerline_fonts = 1
 nnoremap <Leader>p :CtrlP<CR>
+" Open the nerdtree
 nnoremap <Leader>t :NERDTreeToggle<CR>
+
+" File types
+filetype off
+filetype plugin indent on
+" Set json files to javascript syntax
+autocmd BufRead,BufNewFile,BufWrite,BufEnter *.json setf javascript 
+" Set vagrant files to ruby syntax
+autocmd BufRead,BufNewFile,BufWrite,BufEnter {Vagrantfile} setf ruby
+autocmd Filetype vim let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'", '`':'`'}
+" Set  python coding style according to pep8
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent textwidth=79
+" Set c/c++ coding style according to the linux kernel standard
+autocmd FileType c,cpp setlocal tabstop=8 shiftwidth=8 noexpandtab softtabstop=8 cindent textwidth=80 cinoptions=:0,l1,t0,g0,(0
+
+if has('nvim')
+	" exit terminal mode
+	tnoremap <Leader><Esc> <C-\><C-n> 
+endif
