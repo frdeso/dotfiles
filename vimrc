@@ -1,7 +1,12 @@
 " Basics
 set mouse=a
+
 "set clipboard=unnamed
 set laststatus=2   " Always show the statusline
+
+" enable modeline. Modeline=look for a comment in the file to set the tab
+" width
+set modeline
 
 " show filename, file type, position in file and time of day
 set statusline=%f%m%r%h%w\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
@@ -124,8 +129,10 @@ if has('nvim')
 	" exit terminal mode
 	tnoremap <Leader><Esc> <C-\><C-n> 
 endif
-map! jk <ESC>
-map! kj <ESC>
+
+"Alias for the esc key
+imap jk <ESC>
+imap kj <ESC>
 
 set ttimeoutlen=50
 set timeoutlen=300
