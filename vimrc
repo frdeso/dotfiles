@@ -124,3 +124,8 @@ if has('nvim')
 	" exit terminal mode
 	tnoremap <Leader><Esc> <C-\><C-n> 
 endif
+map! jk <ESC>
+map! kj <ESC>
+
+set ttimeoutlen=50
+set timeoutlen=300
