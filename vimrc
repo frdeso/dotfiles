@@ -96,10 +96,10 @@ if has("autocmd")
 	  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'kien/ctrlp.vim'
-Plug 'bling/vim-airline', {'tag' : 'v0.7'}
+Plug 'bling/vim-airline' ", {'tag' : 'v0.7'}
 Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
 Plug 'mileszs/ack.vim'
@@ -130,7 +130,7 @@ autocmd FileType c,cpp setlocal tabstop=8 shiftwidth=8 noexpandtab softtabstop=8
 
 if has('nvim')
 	" exit terminal mode
-	tnoremap <Leader><Esc> <C-\><C-n> 
+	tnoremap <Leader><Tab> <C-\><C-n>
 endif
 
 "Alias for the esc key
