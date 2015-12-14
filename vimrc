@@ -59,14 +59,6 @@ set listchars+=nbsp:.
 " Matching
 set matchpairs+=<:>
 
-" Auto add matching parenthesis and brackets
-inoremap ( ()<Esc>i
-inoremap [ []<Esc>i
-inoremap " ""<Esc>i
-inoremap ' ''<Esc>i
-inoremap < <><Esc>i
-inoremap { {}<Esc>i
-
 "Set space as the leader
 let mapleader = "\<Space>"
 
