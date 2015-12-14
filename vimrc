@@ -121,6 +121,8 @@ autocmd Filetype vim let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'", '`':'
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 smarttab expandtab softtabstop=4 autoindent textwidth=79
 " Set c/c++ coding style according to the linux kernel standard
 autocmd FileType c,cpp setlocal tabstop=8 shiftwidth=8 noexpandtab softtabstop=8 cindent textwidth=80 cinoptions=:0,l1,t0,g0,(0
+" Set Java coding style
+autocmd FileType java setlocal tabstop=2 shiftwidth=2 expandtab softtabstop=2 cindent textwidth=80
 
 if has('nvim')
 	" exit terminal mode
