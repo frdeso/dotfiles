@@ -95,6 +95,8 @@ Plug 'bling/vim-airline' ", {'tag' : 'v0.7'}
 Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
 Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-surround'
+Plug 'gcmt/taboo.vim'
 "Plug 'SirVer/ultisnips'
 "Plug 'luochen1990/indent-detector.vim'
 
