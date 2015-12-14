@@ -107,7 +107,7 @@ nnoremap <Leader>p :CtrlP<CR>
 " Setting the number of indexed files to unlimited for large codebase
 let g:ctrlp_max_files=0
 " Open the nerdtree
-nnoremap <Leader>t :NERDTreeToggle<CR>
+nnoremap <Leader>n :NERDTreeToggle<CR>
 
 " File types
 filetype off
@@ -125,6 +125,7 @@ autocmd FileType c,cpp setlocal tabstop=8 shiftwidth=8 noexpandtab softtabstop=8
 if has('nvim')
 	" exit terminal mode
 	tnoremap <Leader><Tab> <C-\><C-n>
+	nnoremap <Leader>t :tabe term://zsh<CR>
 endif
 
 "Alias for the esc key
