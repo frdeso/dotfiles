@@ -44,6 +44,7 @@ gir ()  { grep -rin $1 ./ }
 gs () { git status -s }
 glog () {git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' }
 
+aptup () {sudo apt-get update && sudo apt-get upgrade}
 
 #Alias vim to nvim is neovim is installed
 if [ -x /usr/bin/nvim ]; then
