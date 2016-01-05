@@ -1,6 +1,7 @@
 install:
 	cp bashrc ~/.bashrc
 	cp vimrc ~/.vimrc
+	cp zshrc ~/.zshrc
 	mkdir -p ~/.i3
 	cp i3_config ~/.i3/config
 	cp i3status.conf ~/.i3status.conf
