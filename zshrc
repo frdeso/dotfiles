@@ -18,7 +18,6 @@ compinit
 HOSTNAME_COLOR='blue'
 
 HOST_HASH=$(perl -e 'print crypt(`hostname`, "86"),"\n"')
-#Hood
 if [ $HOST_HASH='86GShFbMjpaPw' ];
 then
 	HOSTNAME_COLOR='green'
