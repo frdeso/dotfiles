@@ -14,9 +14,18 @@ compinit
 # End of lines added by compinstall
 
 #PS1
+#Hostname color
+HOSTNAME_COLOR='blue'
+
+HOST_HASH=$(perl -e 'print crypt(`hostname`, "86"),"\n"')
+#Hood
+if [ $HOST_HASH='86GShFbMjpaPw' ];
+then
+	HOSTNAME_COLOR='green'
+fi
 
 autoload -U colors && colors
-PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
+PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[$HOSTNAME_COLOR]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
 
 
 #Alias
