@@ -23,6 +23,10 @@ if [[ "$HOST_HASH" == "86GShFbMjpaPw" ]]; then
 	HOSTNAME_COLOR='green'
 elif [[ "$HOST_HASH" == "865j3X/MUuPYY" ]]; then
 	HOSTNAME_COLOR='yellow'
+elif [[ "$HOST_HASH" == "86ufUl4nKr2i." ]]; then
+	HOSTNAME_COLOR='magenta'
+else
+	echo $HOST_HASH
 fi
 
 autoload -U colors && colors
