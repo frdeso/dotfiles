@@ -61,3 +61,16 @@ fi
 export TERM=xterm-256color
 export LANG=en_CA.UTF-8
 export LC_ALL=en_US.UTF-8
+
+
+# enable backspace after re-entering insert-mode in the middle of a line. Is that a bug?
+bindkey "^?" backward-delete-char
+
+#Fix the forward-slash search key binding 
+vi-search-fix() {
+	zle vi-cmd-mode
+	zle .vi-history-search-backward
+}
+autoload vi-search-fix
+zle -N vi-search-fix
+bindkey -M viins '\e/' vi-search-fix
