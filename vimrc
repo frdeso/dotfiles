@@ -136,3 +136,4 @@ imap kj <ESC>
 
 set ttimeoutlen=50
 set timeoutlen=200
+set sessionoptions+=tabpages,globals
