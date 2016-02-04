@@ -19,7 +19,7 @@ HOSTNAME_COLOR='blue'
 HOST_HASH=$(perl -e 'print crypt(`hostname`, "86"),"\n"')
 
 #echo $HOST_HASH
-if [[ "$HOST_HASH" == "86GShFbMjpaPw" ]]; then
+if [[ "$HOST_HASH" == "86XP9lbcJZaqI" ]]; then
 	HOSTNAME_COLOR='green'
 elif [[ "$HOST_HASH" == "865j3X/MUuPYY" ]]; then
 	HOSTNAME_COLOR='yellow'
