@@ -88,26 +88,30 @@ if has("autocmd")
 	  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-call plug#begin('~/.config/nvim/plugged')
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'kien/ctrlp.vim'
-Plug 'bling/vim-airline' ", {'tag' : 'v0.7'}
-Plug 'xolox/vim-notes'
-Plug 'xolox/vim-misc'
-Plug 'mileszs/ack.vim'
-Plug 'tpope/vim-surround'
-Plug 'gcmt/taboo.vim'
-"Plug 'SirVer/ultisnips'
-"Plug 'luochen1990/indent-detector.vim'
+if has('nvim')
+	call plug#begin('~/.config/nvim/plugged')
+	Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+	Plug 'kien/ctrlp.vim'
+	Plug 'bling/vim-airline' ", {'tag' : 'v0.7'}
+	Plug 'xolox/vim-notes'
+	Plug 'xolox/vim-misc'
+	Plug 'mileszs/ack.vim'
+	Plug 'tpope/vim-surround'
+	Plug 'gcmt/taboo.vim'
+	Plug 'moll/vim-bbye'
+	"Plug 'SirVer/ultisnips'
+	"Plug 'luochen1990/indent-detector.vim'
 
-call plug#end()
-let g:airline_powerline_fonts = 1
-nnoremap <Leader>p :CtrlP<CR>
+	call plug#end()
 
-" Setting the number of indexed files to unlimited for large codebase
-let g:ctrlp_max_files=0
-" Open the nerdtree
-nnoremap <Leader>n :NERDTreeToggle<CR>
+	let g:airline_powerline_fonts = 1
+	nnoremap <Leader>p :CtrlP<CR>
+
+	" Setting the number of indexed files to unlimited for large codebase
+	let g:ctrlp_max_files=0
+	" Open the nerdtree
+	nnoremap <Leader>n :NERDTreeToggle<CR>
+endif
 
 " File types
 filetype off
@@ -136,4 +140,3 @@ imap kj <ESC>
 
 set ttimeoutlen=50
 set timeoutlen=200
-set sessionoptions+=tabpages,globals
