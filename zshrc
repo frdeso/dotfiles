@@ -30,8 +30,8 @@ else
 fi
 
 autoload -U colors && colors
-PS1="%{$fg[white]%}[%T]%{$fg[red]%}%n%{$reset_color%}@%{$fg[$HOSTNAME_COLOR]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
-
+PROMPT="%{$fg[white]%}[%?]%{$fg[red]%}%n%{$reset_color%}@%{$fg[$HOSTNAME_COLOR]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
+RPROMPT="[%{$fg_no_bold[yellow]%}%T%{$reset_color%}]"
 
 #Alias
 #ls stuff
@@ -74,3 +74,4 @@ vi-search-fix() {
 autoload vi-search-fix
 zle -N vi-search-fix
 bindkey -M viins '\e/' vi-search-fix
+
