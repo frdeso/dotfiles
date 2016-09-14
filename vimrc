@@ -106,6 +106,7 @@ if has('nvim')
 
 	let g:airline_powerline_fonts = 1
 	nnoremap <Leader>p :CtrlP<CR>
+	nnoremap <Leader>f :CtrlPTag<CR>
 
 	" Setting the number of indexed files to unlimited for large codebase
 	let g:ctrlp_max_files=0
