@@ -1,6 +1,9 @@
 install:
 	cp bashrc ~/.bashrc
+	mkdir -p ~/.config/nvim/
 	cp vimrc ~/.vimrc
+	ln -s ~/.vimrc ~/.config/nvim/init.vim
+	curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	cp zshrc ~/.zshrc
 	mkdir -p ~/.i3
 	cp i3_config ~/.i3/config
