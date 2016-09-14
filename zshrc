@@ -25,6 +25,8 @@ elif [[ "$HOST_HASH" == "865j3X/MUuPYY" ]]; then
 	HOSTNAME_COLOR='yellow'
 elif [[ "$HOST_HASH" == "86ufUl4nKr2i." ]]; then
 	HOSTNAME_COLOR='magenta'
+elif [[ "$HOST_HASH" == "86orur64lO6sI" ]]; then
+	HOSTNAME_COLOR='green'
 else
 	echo $HOST_HASH
 fi
@@ -43,7 +45,7 @@ alias la='ls -al'
 acs ()  { apt-cache search $1 }
 
 #grep
-gir ()  { grep -rin $1 ./ }
+gir ()  { grep -rIin $1 ./ }
 
 #git 
 gs () { git status -s }
@@ -75,3 +77,6 @@ autoload vi-search-fix
 zle -N vi-search-fix
 bindkey -M viins '\e/' vi-search-fix
 
+#Disable wildcard expansion for lttng commands
+alias lttng='noglob lttng'
+ 
